@@ -1,0 +1,11 @@
+<launch>
+
+  <node pkg="motion_controller" type="motion_controller_node" name="motion_controller_node" output="screen">
+  </node>
+  <node pkg="ht_vision_node" type="ht_vision_node" name="ht_vision_node" output="screen">
+  </node>
+  <node pkg="apriltags_ros" type="apriltag_detector_node" name="apriltag_detector_node" output="screen">
+  </node>
+
+ 
+</launch>
