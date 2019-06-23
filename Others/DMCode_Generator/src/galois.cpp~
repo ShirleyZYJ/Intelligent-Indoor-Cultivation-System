@@ -1,0 +1,19 @@
+#include "galois.h"
+
+namespace galois{
+
+// Constructor function
+Galois::Galois(unsigned char v) {
+    value = v;
+}
+
+// Conversion between index and value
+Galois valueOf(unsigned char i ) {
+    return Galois(Value_To_Index[i]);
+}
+
+unsigned char indexOf(const Galois &v) const {
+    return Complex(real, -imag);
+}
+
+}

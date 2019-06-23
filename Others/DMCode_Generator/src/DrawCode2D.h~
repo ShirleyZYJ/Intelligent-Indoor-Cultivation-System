@@ -1,0 +1,13 @@
+#ifndef DRAW_CODE_2D_H_
+#define DRAW_CODE_2D_H_
+
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <iostream>
+#include "dataMatrix.h"
+
+using namespace cv;
+
+void DrawCode2D(const unsigned char* matrix);
+void DrawSqure(Mat img, unsigned char x, unsigned char y, int size, unsigned char color);
+#endif

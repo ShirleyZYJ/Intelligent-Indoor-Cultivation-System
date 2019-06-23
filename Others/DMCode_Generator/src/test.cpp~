@@ -1,0 +1,56 @@
+#include <iostream>
+#include <sstream>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include "dataMatrixDecoder.h"
+#include "dataMatrixEncoder.h"
+#include "DrawCode2D.h"
+using namespace std;
+using namespace cv;
+
+int main() {
+    /*    uchar dataMatrix_Detected[] = {
+            0, 0, 0, 1, 1, 0, 0, 0, 0, 0,
+            0, 0, 0, 0, 0, 1, 0, 0, 0, 0,
+            0, 1, 0, 0, 0, 0, 0, 1, 0, 0,
+            0, 0, 1, 1, 0, 1, 0, 0, 0, 0,
+            1, 0, 1, 1, 0, 1, 0, 1, 1, 0,
+            1, 1, 1, 1, 1, 0, 1, 0, 0, 0,
+            1, 0, 0, 1, 0, 1, 0, 1, 1, 0,
+            1, 1, 0, 0, 0, 1, 1, 0, 1, 1,
+            0, 0, 1, 0, 0, 1, 0, 0, 1, 0,
+            0, 0, 0, 0, 0, 0, 1, 0, 1, 0
+        };*/
+    //long long data = 15364056;
+    char* data = "1111111111";
+    int size = MATRIX_SIZE+2*BLACK_BOARDER+2*WITH_WHITE_BLANK;
+    uchar matrix[size * size];
+    dataMatrixEncoder(matrix, data);
+
+    DrawCode2D(matrix,size);
+
+    long long data_detected;
+    data_detected = dataMatrixDecoder(matrix);
+    cout << data_detected << endl;
+//    cout << "The recovered data is " <<data<<endl;
+
+//    double t;
+    /*
+    t = (double)getTickCount();
+
+    data = dataMatrixDecoder(dataMatrix_Detected);
+
+    t = 1000 * ((double)getTickCount() - t) / getTickFrequency();
+
+    cout  << t << " milliseconds." << endl;
+
+    for(int index = 0; index < 5; index++)
+        cout << (int)data[index] << " ";
+    cout << endl;
+    double t;
+
+    //uchar codes[] = {66, 67, 68, 69, 70, 142, 129 , 56 , 75 , 145, 55, 46, 20, 95, 253, 237, 62, 111};
+    */
+  waitKey( 0 );
+    return 0;
+}

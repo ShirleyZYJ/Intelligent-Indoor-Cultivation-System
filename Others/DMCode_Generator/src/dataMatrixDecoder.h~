@@ -1,0 +1,10 @@
+#ifndef DATA_MATRIX_DECODER_H_
+#define DATA_MATRIX_DECODER_H_
+#include <iostream>
+#include "dataMatrix.h"
+#include "ReedSolomonDecoder.h"
+
+uchar byteDecoder(uchar dataMatrix_Expanded[], uchar byteHead);
+bool dataMatrixDecoder(uchar* dataMatrix_Detected, uchar* dataMatrix_Recovered);
+
+#endif
